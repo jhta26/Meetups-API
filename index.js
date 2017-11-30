@@ -6,10 +6,7 @@ const cors = require('cors');
 const jwt = require('express-jwt');
 const app = express();
 const port = process.env.PORT || 8000;
-const authentication = require('./routes/authentication');
-const participants = require('./routes/participants');
-const meetups = require('./routes/meetups');
-const users = require('./routes/users');
+
 
 app.use(bodyParser.json());
 
@@ -30,10 +27,14 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(meetups);
+const authentication = require('./routes/authentication');
+const participants = require('./routes/participants');
+const meetups = require('./routes/meetups');
+const users = require('./routes/users');
 app.use(participants);
+app.use(meetups);
 app.use(users);
-app.use(authenticationRouter);
+app.use(authentication);
 app.all('*', (req, res, next) => res.sendStatus(404));
 
 app.listen(port, () => {
