@@ -1,7 +1,13 @@
 exports.up = function(knex) {
     return knex.schema.createTable('participants', table => {
         table.increments()
-        table.integer('user_id').notNullable()
+        table
+            .integer('user_id')
+            .notNullable()
+            .references('id')
+            .inTable('users')
+            .index()
+            .onDelete('CASCADE')
         table
             .integer('meetup_id')
             .notNullable()
@@ -10,9 +16,11 @@ exports.up = function(knex) {
             .index()
             .onDelete('CASCADE')
         table.string('status').notNullable().defaultTo('')
-        table.string('locations').notNullable().defaultTo('')
-        table.string('time_left').notNullable().defaultTo('')
+        table.float('current_lat').notNullable().defaultTo(0)
+        table.float('current_lon').notNullable().defaultTo(0)
+        table.string('time_remaing').notNullable().defaultTo('')
         table.string('time_arrived').notNullable().defaultTo('')
+        table.string('already_there').notNullable().defaultTo('')
     })
 };
 

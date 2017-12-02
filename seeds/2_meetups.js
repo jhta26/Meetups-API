@@ -3,16 +3,44 @@ exports.seed = function(knex, Promise) {
     return knex('meetups').del()
         .then(function() {
             // Inserts seed entries
-            return knex('meetups').insert([
-                { name: 'lunch', creator: 'Jasonhsu', user_id: 1, location_meetup: '39,104', time_meetup: 'December 5th 2017, 4:56:25 pm', status: 'ACTIVE' },
-                { name: 'meeting', creator: 'Jasonhsu', user_id: 1, location_meetup: '38,100', time_meetup: 'December 5th 2017, 4:56:25 pm', status: 'ACTIVE' },
-                { name: 'shopping', creator: 'Jasonhsu', user_id: 1, location_meetup: '37,107', time_meetup: 'December 5th 2017, 4:56:25 pm', status: 'ACTIVE' },
-                { name: 'party', creator: 'Jasonhsu', user_id: 1, location_meetup: '36,102', time_meetup: 'December 5th 2017, 4:53:25 pm', status: 'ACTIVE' },
-                { name: 'dance', creator: 'Jasonhsu', user_id: 1, location_meetup: '39,99', time_meetup: 'December 5th 2017, 4:56:25 pm', status: 'ACTIVE' },
-                { name: 'premiere', creator: 'Jasonhsu', user_id: 1, location_meetup: '39,104', time_meetup: 'December 5th 2017, 4:00:25 pm', status: 'ACTIVE' },
-                { name: 'dinner', creator: 'Jasonhsu', user_id: 1, location_meetup: '44,104', time_meetup: 'December 6th 2017, 4:56:25 pm', status: 'COMPLETED' },
-                { name: 'lunch', creator: 'Jasonhsu', user_id: 1, location_meetup: '39,104', time_meetup: 'December 5th 2017, 4:56:25 pm', status: 'COMPLETED' },
-                { name: 'lunch', creator: 'Jasonhsu', user_id: 1, location_meetup: '39,104', time_meetup: 'December 5th 2017, 4:56:25 pm', status: 'COMPLETED' },
+            return knex('meetups').insert([{
+                    creator: 1,
+                    name_of_meetup: 'Lunch',
+                    time_meetup: 'December 22nd 2017, 2:03 pm',
+                    location_name: 'McDonalds'
+                    location_lat: 37.798713,
+                    location_lon: -122.4317172,
+                    status: 'ACTIVE'
+                },
+                {
+                    creator: 1,
+                    name_of_meetup: 'Dropbox party',
+                    time_meetup: 'December 9th 2017, 7:00 pm',
+                    location_name: 'Palace Hotel'
+                    location_lat: 37.7881439,
+                    location_lon: -122.4017237,
+                    status: 'ACTIVE'
+                },
+                {
+                    creator: 2,
+                    name_of_meetup: 'Dinner with friends',
+                    time_meetup: 'December 8th 2017, 5:00 pm',
+                    location_name: 'Garaje'
+                    location_lat: 37.7817098,
+                    location_lon: -122.3961356,
+                    status: 'ACTIVE'
+                },
+                {
+                    creator: 1,
+                    name_of_meetup: 'Meeting',
+                    time_meetup: 'November 8th 2017, 5:00 pm',
+                    location_name: 'Garaje'
+                    location_lat: 37.7817098,
+                    location_lon: -122.3961356,
+                    status: 'COMPLETED'
+                }
+
+
 
             ]);
         });
