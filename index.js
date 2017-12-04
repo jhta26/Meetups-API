@@ -30,6 +30,7 @@ const authentication = require('./routes/authentication');
 const participants = require('./routes/participants');
 const meetups = require('./routes/meetups');
 const users = require('./routes/users');
+
 app.use(participants);
 app.use(meetups);
 app.use(users);
