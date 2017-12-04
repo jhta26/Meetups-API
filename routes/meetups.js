@@ -3,7 +3,7 @@ const router = express.Router();
 const meetupsController = require('../lib/instances/meetupsController');
 
 router.post('/users/:user_id(\\d+)/meetups', meetupsController.postByUsersId);
-router.get('/users/:user_id(\\d+)/meetups', meetupsController.findByUsersId);
+router.get('/users/:user_id(\\d+)/meetups', meetupsController.findAllInvolvedMeetups);
 router.all('/users/:user_id(\\d+)/meetups', (req, res, next) => {
   res.status(405).send('Method Not Allowed');
 });

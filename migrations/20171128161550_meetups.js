@@ -14,6 +14,7 @@ exports.up = function(knex) {
     table.float('location_lat',[12]).notNullable().defaultTo(0);
     table.float('location_lon',[12]).notNullable().defaultTo(0);
     table.string('status').notNullable().defaultTo('');
+    table.string('private').notNullable().defaultTo('')
   });
 };
 
