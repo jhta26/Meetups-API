@@ -29,7 +29,7 @@ suite('users', addDatabaseHooks(() => {
                         done()
                     })
             })
-            test('GETALL', done => {
+            test('GETALL users', done => {
                 agent.get('/users')
                     .set('Accept', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
