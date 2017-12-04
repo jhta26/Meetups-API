@@ -240,30 +240,29 @@ suite(
                         done
                     );
             })
-            // test('DELETE meetups by user id', done => {
-            //     agent
-            //         .delete('/meetups/1')
-            //         .set('Accept', 'application/json')
-            //         .set('Authorization', 'Bearer ' + token)
-            //         .expect('Content-Type', /json/)
-            //         .expect(res => {
-            //             delete res.body.created_at;
-            //             delete res.body.updated_at;
-            //         })
-            //         .expect(
-            //             200, {
-            //                 id: 1,
-            //                 creator: 1,
-            //                 name_of_meetup: 'Lunch',
-            //                 time_meetup: 'December 22nd 2017, 2:03 pm',
-            //                 location_name: 'McDonalds',
-            //                 location_lat: 37.7987,
-            //                 location_lon: -122.432,
-            //                 status: 'ACTIVE'
-            //             },
-            //             done
-            //         );
-            // });
+            test('DELETE meetups by user id', done => {
+                agent
+                    .delete('/meetups/1')
+                    .set('Accept', 'application/json')
+                    .set('Authorization', 'Bearer ' + token)
+                    .expect('Content-Type', /json/)
+                    .expect(res => {
+
+                    })
+                    .expect(
+                        202, {
+                            id: 1,
+                            creator: 1,
+                            name_of_meetup: 'Lunch',
+                            time_meetup: 'December 22nd 2017, 2:03 pm',
+                            location_name: 'McDonalds',
+                            location_lat: 37.7987,
+                            location_lon: -122.432,
+                            status: 'ACTIVE'
+                        },
+                        done
+                    );
+            });
             test('POST participants by users id', done => {
                 agent
                     .post('/users/1/participants')
@@ -364,6 +363,30 @@ suite(
                         done
                     );
             })
+            test('DELETE participants by user id', done => {
+                agent
+                    .delete('/participants/1')
+                    .set('Accept', 'application/json')
+                    .set('Authorization', 'Bearer ' + token)
+                    .expect('Content-Type', /json/)
+                    .expect(res => {
+
+                    })
+                    .expect(
+                        202, {
+                            id: 1,
+                            user_id: 1,
+                            meetup_id: 1,
+                            status: 'ACCEPT',
+                            current_lat: 37.7881,
+                            current_lon: -122.402,
+                            time_remaining: '',
+                            time_arrived: '',
+                            already_there: ''
+                        },
+                        done
+                    );
+            });
         });
     })
 );
