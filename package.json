@@ -9,8 +9,8 @@
   "scripts": {
     "knex": "knex",
     "start": "nodemon",
-    "test": "mocha -u tdd",
-    "test:super": "mocha -u tdd -- test/Routes.test.js"
+    "test": "jest --coverage",
+    "test:super": "mocha -u tdd -- ./test/Routes.test.js"
   },
   "repository": {
     "type": "git",

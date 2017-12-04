@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50.98% </span>
+        <span class="strong">52.83% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>26/51</span>
+        <span class='fraction'>28/53</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>6/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50.98% </span>
+        <span class="strong">52.83% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>26/51</span>
+        <span class='fraction'>28/53</span>
       </div>
     </div>
   </div>
@@ -134,7 +134,9 @@
 89
 90
 91
-92</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+92
+93
+94</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -162,25 +164,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -197,6 +183,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -208,6 +211,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -242,7 +246,7 @@
                 req.body,
                 req.authenticatedUserId
             );
-            res.status(200).json(entity);
+            res.status(201).json(entity);
         } catch (error) {
 <span class="cstat-no" title="statement not covered" >            if (error.message == 'NO_PERMISSION')</span>
 <span class="cstat-no" title="statement not covered" >                return res.status(403).send('no permission');</span>
@@ -253,10 +257,10 @@
     }
     async getAll(req, res, next) {
         try {
-            const entities = await this._entityService.getAll(
-                req.authenticatedUserId
-            );
-            res.json(entities);
+            
+            const authenticatedUserId = req.authenticatedUserId
+            const entities = await this._entityService.getAll(authenticatedUserId);          
+            res.status(200).json(entities);
         } catch (error) {
 <span class="cstat-no" title="statement not covered" >            if (error.message == 'NO_PERMISSION')</span>
 <span class="cstat-no" title="statement not covered" >                return res.status(403).send('no permission');</span>
@@ -289,6 +293,7 @@
                 req.body,
                 req.authenticatedUserId
             );
+&nbsp;
             res.json(entity);
         } catch (error) {
 <span class="cstat-no" title="statement not covered" >            if (error.message == 'NO_PERMISSION')</span>
@@ -300,12 +305,13 @@
     }
     async delete(req, res, next) {
         try {
+            console.log('CONTROLLER',req.params)
             const id = parseInt(req.params.id);
             const entity = await this._entityService.delete(
                 id,
                 req.authenticatedUserId
             );
-            res.json(entity);
+            res.status(202).json(entity);
         } catch (error) {
 <span class="cstat-no" title="statement not covered" >            if (error.message == 'NO_PERMISSION')</span>
 <span class="cstat-no" title="statement not covered" >                return res.status(403).send('no permission');</span>
@@ -322,7 +328,7 @@ module.exports = EntityController;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Dec 03 2017 13:44:24 GMT-0800 (PST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Dec 03 2017 15:15:31 GMT-0800 (PST)
 </div>
 </div>
 <script src="../prettify.js"></script>

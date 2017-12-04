@@ -7,7 +7,7 @@ router.get('/users/:user_id(\\d+)/meetups', meetupsController.findByUsersId)
 router.all('/users/:user_id(\\d+)/meetups', (req, res, next) => {
     res.status(405).send('Method Not Allowed');
 });
-
+router.get('/meetups/:id(\\d+)', meetupsController.getById)
 router.patch('/meetups/:id(\\d+)', meetupsController.update)
 router.delete('/meetups/:id(\\d+)', meetupsController.delete)
 router.all('/meetups/:id(\\d+)', (req, res, next) => {
@@ -15,6 +15,3 @@ router.all('/meetups/:id(\\d+)', (req, res, next) => {
 });
 
 module.exports = router;
-
-
-
