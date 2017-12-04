@@ -145,7 +145,7 @@ suite(
                     })
                     .expect(
                         200, [{
-                            id:3,
+                            id: 3,
                             creator: 2,
                             name_of_meetup: 'Dinner with friends',
                             time_meetup: 'December 8th 2017, 5:00 pm',
@@ -159,16 +159,15 @@ suite(
             });
             test('POST meetups by users id', done => {
                 agent
-                    .patch('/users/1/meetups')
+                    .post('/users/1/meetups')
                     .set('Accept', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .send({
-                        creator: 1,
                         name_of_meetup: 'Party',
                         time_meetup: 'December 9th 2017, 8:00 pm',
                         location_name: 'Fairmont',
-                        location_lat: 38.7881439,
-                        location_lon: -122.4017237,
+                        location_lat: 38.7881,
+                        location_lon: -122.401,
                         status: 'ACTIVE'
                     })
                     .expect('Content-Type', /json/)
@@ -177,14 +176,14 @@ suite(
                         delete res.body.updated_at;
                     })
                     .expect(
-                        201, {
+                        200, {
                             id: 5,
                             creator: 1,
                             name_of_meetup: 'Party',
                             time_meetup: 'December 9th 2017, 8:00 pm',
                             location_name: 'Fairmont',
-                            location_lat: 38.7881439,
-                            location_lon: -122.4017237,
+                            location_lat: 38.7881,
+                            location_lon: -122.401,
                             status: 'ACTIVE'
                         },
                         done
