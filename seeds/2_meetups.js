@@ -9,7 +9,7 @@ exports.seed = function(knex, Promise) {
                 location_name: 'McDonalds',
                 location_lat: 37.798713,
                 location_lon: -122.4317172,
-                status: 'ACTIVE',
+                active: 'YES',
                 private: 'NO'
             },
             {
@@ -19,7 +19,7 @@ exports.seed = function(knex, Promise) {
                 location_name: 'Palace Hotel',
                 location_lat: 37.7881439,
                 location_lon: -122.4017237,
-                status: 'ACTIVE',
+                active: 'YES',
                 private: 'YES'
             },
             {
@@ -29,7 +29,7 @@ exports.seed = function(knex, Promise) {
                 location_name: 'Garaje',
                 location_lat: 37.7817098,
                 location_lon: -122.3961356,
-                status: 'ACTIVE',
+                active: 'YES',
                 private: 'NO'
             },
             {
@@ -39,7 +39,7 @@ exports.seed = function(knex, Promise) {
                 location_name: 'Garaje',
                 location_lat: 37.7817098,
                 location_lon: -122.3961356,
-                status: 'COMPLETED',
+                active: 'NO',
                 private: 'NO'
             }
         ]);

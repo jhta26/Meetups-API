@@ -144,45 +144,62 @@ suite(
                         delete res.body.updated_at;
                     })
                     .expect(
-                        200, [{ id:1,
-                                creator: 1,
-                                name_of_meetup: 'Lunch',
-                                time_meetup: 'December 22nd 2017, 2:03 pm',
-                                location_name: 'McDonalds',
-                                location_lat: 37.798713,
-                                location_lon: -122.4317172,
-                                status: 'ACTIVE',
-                                private: 'NO'
-                            },
-                            {   id:2,
-                                creator: 1,
-                                name_of_meetup: 'Dropbox party',
-                                time_meetup: 'December 9th 2017, 7:00 pm',
-                                location_name: 'Palace Hotel',
-                                location_lat: 37.7881439,
-                                location_lon: -122.4017237,
-                                status: 'ACTIVE',
-                                private: 'YES'
-                            },
-                            {   id:3,
-                                creator: 2,
-                                name_of_meetup: 'Dinner with friends',
-                                time_meetup: 'December 8th 2017, 5:00 pm',
-                                location_name: 'Garaje',
-                                location_lat: 37.7817098,
-                                location_lon: -122.3961356,
-                                status: 'ACTIVE',
-                                private: 'NO'
-                            },
-                            {   id:4,
+                        200, [{
+                                id: 4,
                                 creator: 1,
                                 name_of_meetup: 'Meeting',
                                 time_meetup: 'November 8th 2017, 5:00 pm',
                                 location_name: 'Garaje',
-                                location_lat: 37.7817098,
-                                location_lon: -122.3961356,
-                                status: 'COMPLETED',
-                                private: 'NO'
+                                location_lat: 37.7817,
+                                location_lon: -122.396,
+                                active: 'NO',
+                                private: 'NO',
+                                user_id: 1,
+                                meetup_id: 4,
+                                status: 'ACCEPT',
+                                current_lat: 37.7881,
+                                current_lon: -122.402,
+                                time_remaining: '',
+                                time_arrived: '',
+                                already_there: ''
+                            },
+                            {
+                                id: 3,
+                                creator: 2,
+                                name_of_meetup: 'Dinner with friends',
+                                time_meetup: 'December 8th 2017, 5:00 pm',
+                                location_name: 'Garaje',
+                                location_lat: 37.7817,
+                                location_lon: -122.396,
+                                active: 'YES',
+                                private: 'NO',
+                                user_id: 1,
+                                meetup_id: 3,
+                                status: 'ACCEPT',
+                                current_lat: 37.7881,
+                                current_lon: -122.402,
+                                time_remaining: '',
+                                time_arrived: '',
+                                already_there: ''
+                            },
+                            {
+                                id: 1,
+                                creator: 1,
+                                name_of_meetup: 'Lunch',
+                                time_meetup: 'December 22nd 2017, 2:03 pm',
+                                location_name: 'McDonalds',
+                                location_lat: 37.7987,
+                                location_lon: -122.432,
+                                active: 'YES',
+                                private: 'NO',
+                                user_id: 1,
+                                meetup_id: 1,
+                                status: 'ACCEPT',
+                                current_lat: 37.7881,
+                                current_lon: -122.402,
+                                time_remaining: '',
+                                time_arrived: '',
+                                already_there: ''
                             }
                         ],
                         done
@@ -199,7 +216,7 @@ suite(
                         location_name: 'Fairmont',
                         location_lat: 38.7881,
                         location_lon: -122.401,
-                        status: 'ACTIVE'
+                        active: 'YES'
                     })
                     .expect('Content-Type', /json/)
                     .expect(res => {
@@ -215,7 +232,7 @@ suite(
                             location_name: 'Fairmont',
                             location_lat: 38.7881,
                             location_lon: -122.401,
-                            status: 'ACTIVE',
+                            active: 'YES',
                             private: ''
                         },
                         done
@@ -240,7 +257,7 @@ suite(
                             location_name: 'McDonalds',
                             location_lat: 37.7987,
                             location_lon: -122.432,
-                            status: 'ACTIVE',
+                            active: 'YES',
                             private: 'NO'
                         },
                         done
@@ -268,7 +285,7 @@ suite(
                             location_name: 'McDonalds',
                             location_lat: 37.7987,
                             location_lon: -122.432,
-                            status: 'ACTIVE',
+                            active: 'YES',
                             private: 'NO'
                         },
                         done
@@ -290,7 +307,7 @@ suite(
                             location_name: 'McDonalds',
                             location_lat: 37.7987,
                             location_lon: -122.432,
-                            status: 'ACTIVE',
+                            active: 'YES',
                             private: 'NO'
                         },
                         done
@@ -318,7 +335,7 @@ suite(
                     })
                     .expect(
                         200, {
-                            id: 4,
+                            id: 5,
                             user_id: 1,
                             meetup_id: 1,
                             status: 'ACCEPT',
@@ -343,6 +360,17 @@ suite(
                     })
                     .expect(
                         200, [{
+                                id: 4,
+                                user_id: 1,
+                                meetup_id: 4,
+                                status: 'ACCEPT',
+                                current_lat: 37.7881,
+                                current_lon: -122.402,
+                                time_remaining: '',
+                                time_arrived: '',
+                                already_there: ''
+                            },
+                            {
                                 id: 3,
                                 user_id: 1,
                                 meetup_id: 3,
