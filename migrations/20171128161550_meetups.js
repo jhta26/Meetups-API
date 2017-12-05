@@ -11,10 +11,10 @@ exports.up = function(knex) {
     table.string('name_of_meetup').notNullable().defaultTo('');
     table.string('time_meetup').notNullable().defaultTo('');
     table.string('location_name').notNullable().defaultTo('');
-    table.float('location_lat',[12]).notNullable().defaultTo(0);
-    table.float('location_lon',[12]).notNullable().defaultTo(0);
+    table.float('location_lat', [12]).notNullable().defaultTo(0);
+    table.float('location_lon', [12]).notNullable().defaultTo(0);
     table.string('active').notNullable().defaultTo('');
-    table.string('private').notNullable().defaultTo('')
+    table.string('private').notNullable().defaultTo('');
   });
 };
 
