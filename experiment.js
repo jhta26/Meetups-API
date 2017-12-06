@@ -1,23 +1,32 @@
-var participants=[{
-                    user_id: 1,
-                    meetup_id: 1,
-                    status: 'ACCEPT',
-                    current_lat: 37.7881439,
-                    current_lon: -122.4017237,
-                    time_remaining: '',
-                    time_arrived: '',
-                    already_there: ''
-                },
-                {
-                    user_id: 1,
-                    meetup_id: 3,
-                    status: 'ACCEPT',
-                    current_lat: 37.7881439,
-                    current_lon: -122.4017237,
-                    time_remaining: '',
-                    time_arrived: '',
-                    already_there: ''
-                }
+var users=[
+      {
+        name: 'Jason Hsu',
+        username: 'Jasonhsu',
+        hashed_password:
+          '$2a$12$C9AYYmcLVGYlGoO4vSZTPud9ArJwbGRsJ6TUsNULzR48z8fOnTXbS',
+        bar_info: 60
+      },
+      {
+        name: 'Megan Hsu',
+        username: 'Meganhsu',
+        hashed_password:
+          '$2a$12$C9AYYmcLVGYlGoO4vSZTPud9ArJwbGRsJ6TUsNULzR48z8fOnTXbS',
+        bar_info: 50
+      },
+      {
+        name: 'Chuck Hagy',
+        username: 'Chuckhagy',
+        hashed_password:
+          '$2a$12$C9AYYmcLVGYlGoO4vSZTPud9ArJwbGRsJ6TUsNULzR48z8fOnTXbS',
+        bar_info: 40
+      },
+      {
+        name: 'Melisa Im',
+        username: 'Melisaim',
+        hashed_password:
+          '$2a$12$C9AYYmcLVGYlGoO4vSZTPud9ArJwbGRsJ6TUsNULzR48z8fOnTXbS',
+        bar_info: 70
+      }
+    ]
 
-
-            ]
+    console.log(users.map(a=>a.username))
