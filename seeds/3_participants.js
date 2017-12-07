@@ -6,8 +6,7 @@ exports.seed = function(knex, Promise) {
                 user_id: 1,
                 meetup_id: 1,
                 status: 'ACCEPT',
-                current_lat: 37.7881439,
-                current_lon: -122.4017237,
+                current_lat_lon: '37.7881439, -122.4017237',
                 time_remaining: '',
                 time_arrived: '',
                 already_there: ''
@@ -17,8 +16,7 @@ exports.seed = function(knex, Promise) {
                 user_id: 2,
                 meetup_id: 1,
                 status: 'ACCEPT',
-                current_lat: 37.7817098,
-                current_lon: -122.3961356,
+                current_lat_lon: '37.7817098, -122.3961356',
                 time_remaining: '',
                 time_arrived: '',
                 already_there: ''
@@ -27,8 +25,7 @@ exports.seed = function(knex, Promise) {
                 user_id: 1,
                 meetup_id: 3,
                 status: 'ACCEPT',
-                current_lat: 37.7881439,
-                current_lon: -122.4017237,
+                current_lat_lon: '37.7881439, -122.4017237',
                 time_remaining: '',
                 time_arrived: '',
                 already_there: ''
@@ -37,8 +34,7 @@ exports.seed = function(knex, Promise) {
                 user_id: 1,
                 meetup_id: 4,
                 status: 'ACCEPT',
-                current_lat: 37.7881439,
-                current_lon: -122.4017237,
+                current_lat_lon: '37.7881439, -122.4017237',
                 time_remaining: '',
                 time_arrived: '',
                 already_there: ''

@@ -16,8 +16,7 @@ exports.up = function(knex) {
       .index()
       .onDelete('CASCADE');
     table.string('status').notNullable().defaultTo('');
-    table.float('current_lat').notNullable().defaultTo(0);
-    table.float('current_lon').notNullable().defaultTo(0);
+    table.string('current_lat_lon').notNullable().defaultTo('')
     table.string('time_remaining').notNullable().defaultTo('');
     table.string('time_arrived').notNullable().defaultTo('');
     table.string('already_there').notNullable().defaultTo('');
