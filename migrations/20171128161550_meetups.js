@@ -11,7 +11,7 @@ exports.up = function(knex) {
     table.string('name_of_meetup').notNullable().defaultTo('');
     table.string('time_meetup').notNullable().defaultTo('');
     table.string('location_name').notNullable().defaultTo('');
-    table.string('location_lat_lon').notNullable().defaultTo('')
+    table.string('location_lat_lon').notNullable().defaultTo('');
     table.string('active').notNullable().defaultTo('');
     table.string('private').notNullable().defaultTo('');
   });
