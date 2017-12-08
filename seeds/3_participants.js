@@ -34,7 +34,7 @@ exports.seed = function(knex, Promise) {
       {
         user_id: 1,
         meetup_id: 4,
-        status: 'ACCEPT',
+        status: '',
         current_lat_lon: '37.7881439, -122.4017237',
         time_remaining: '',
         time_arrived: '',
