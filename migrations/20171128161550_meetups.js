@@ -16,6 +16,7 @@ exports.up = function(knex) {
             .index()
             .onDelete('CASCADE')
         table.string('name_of_meetup').notNullable().defaultTo('');
+        table.string('destination_address').notNullable(.defaultTo(''))
         table.string('time_meetup').notNullable().defaultTo('');
         table.string('location_name').notNullable().defaultTo('');
         table.string('location_lat_lon').notNullable().defaultTo('');
