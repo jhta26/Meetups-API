@@ -4,6 +4,7 @@ exports.seed = function(knex, Promise) {
         // Inserts seed entries
         return knex('meetups').insert([{
                 creator: 1,
+                creator_name:"Jason Hsu",
                 name_of_meetup: 'Lunch',
                 time_meetup: 'December 22nd 2017, 2:03 pm',
                 location_name: 'McDonalds',
@@ -13,6 +14,7 @@ exports.seed = function(knex, Promise) {
             },
             {
                 creator: 1,
+                creator_name:"Jason Hsu",
                 name_of_meetup: 'Dropbox party',
                 time_meetup: 'December 20th 2017, 7:00 pm',
                 location_name: 'Palace Hotel',
@@ -22,6 +24,7 @@ exports.seed = function(knex, Promise) {
             },
             {
                 creator: 2,
+                creator_name:"Megan Hsu",
                 name_of_meetup: 'Dinner with friends',
                 time_meetup: 'December 19th 2017, 5:00 pm',
                 location_name: 'Garaje',
@@ -31,6 +34,7 @@ exports.seed = function(knex, Promise) {
             },
             {
                 creator: 1,
+                creator_name:"Jason Hsu",
                 name_of_meetup: 'Meeting',
                 time_meetup: 'December 17th 2017, 5:00 pm',
                 location_name: 'Garaje',
@@ -40,6 +44,7 @@ exports.seed = function(knex, Promise) {
             },
             {
                 creator: 3,
+                creator_name:"Chuck Hagy",
                 name_of_meetup: 'Meeting',
                 time_meetup: 'December 17th 2017, 5:00 pm',
                 location_name: 'Garaje',
@@ -49,6 +54,7 @@ exports.seed = function(knex, Promise) {
             },
                {
                 creator: 4,
+                creator_name:"Melisa Im",
                 name_of_meetup: 'Breakfast',
                 time_meetup: 'December 24th 2017, 7:00 am',
                 location_name: 'West Of Pecos',

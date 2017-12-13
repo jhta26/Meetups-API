@@ -1,7 +1,7 @@
 exports.up = function(knex) {
   return knex.schema.createTable('users', table => {
     table.increments();
-    table.string('name').notNullable().defaultTo('');
+    table.string('name').notNullable().unique().defaultTo('');
     table.string('username').notNullable().unique();
     table.integer('bar_info').notNullable().defaultTo(0);
     table.specificType('hashed_password', 'char(60)').notNullable();
