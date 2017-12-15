@@ -20,6 +20,14 @@ exports.seed = function(knex, Promise) {
                 already_there: ''
             },
             {
+                user_id: 3,
+                meetup_id: 1,
+                status: 'ACCEPT',
+                time_remaining: '',
+                time_arrived: '',
+                already_there: ''
+            },
+            {
                 user_id: 1,
                 meetup_id: 3,
                 status: '',
