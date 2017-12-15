@@ -21,7 +21,6 @@ websocket.on('connection', (socket) => {
 
 async function onLocationReceived(location, socket) {
    
-   
         db('users').update(location, 'current_lat_lon');
         var parts = await db.from('users').innerJoin('participants', 'users.id', 'participants.user_id')
         socket.emit('participants', parts)
