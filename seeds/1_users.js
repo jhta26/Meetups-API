@@ -14,7 +14,7 @@ exports.seed = function(knex, Promise) {
       {
         name: 'Megan Hsu',
         username: 'Meganhsu',
-        current_lat_lon: '37.7917098, -122.3961356',
+        current_lat_lon: '37.7819088, -122.3961356',
         hashed_password:
           '$2a$12$C9AYYmcLVGYlGoO4vSZTPud9ArJwbGRsJ6TUsNULzR48z8fOnTXbS',
         bar_info: 50
