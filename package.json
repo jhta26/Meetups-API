@@ -40,6 +40,7 @@
     "morgan": "^1.9.0",
     "node-mocks-http": "^1.6.6",
     "pg": "^7.4.0",
+    "socket.io": "^2.0.4",
     "yup": "^0.23.0"
   },
   "devDependencies": {
