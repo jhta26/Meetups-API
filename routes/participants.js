@@ -13,7 +13,10 @@ router.get(
 router.all('/users/:user_id(\\d+)/participants', (req, res, next) => {
   res.status(405).send('Method Not Allowed');
 });
-
+router.get(
+  '/meetups/:meetup_id(\\d+)/participants',
+  participantsController.findByMeetupsId
+);
 router.patch('/participants/:id(\\d+)', participantsController.update);
 router.delete('/participants/:id(\\d+)', participantsController.delete);
 router.all('/participants/:id(\\d+)', (req, res, next) => {
