@@ -12,3 +12,5 @@ module.exports = {
   PGDATABASE: process.env.PGDATABASE,
   JWT_KEY: process.env.JWT_KEY
 };
+
+// glance-env.us-east-2.elasticbeanstalk.com 

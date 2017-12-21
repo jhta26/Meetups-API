@@ -12,20 +12,36 @@ const port = process.env.PORT || 8000;
 
 var websocket = socketio(server);
 const db = require('./knex');
-server.listen(8000,()=>console.log('listening'))
+server.listen(8000, () => console.log('listening'))
 
 
 websocket.on('connection', (socket) => {
-    socket.on('location', (location) => onLocationReceived(location, socket));
+    socket.on('userJoined',(meetupId)=>onJoinedMeetup(meetupId,socket))
+    socket.on('location', (location,userId) => onLocationReceived(location, socket,userId));
+    
 });
 
-async function onLocationReceived(location, socket) {
-   
-        db('users').update(location, 'current_lat_lon');
-        var parts = await db.from('users').innerJoin('participants', 'users.id', 'participants.user_id')
-        socket.emit('participants', parts)
-
+async function onLocationReceived(location, socket,userId) {
+    var userId = users[socket.id];
+    if (!userId) return;
+    console.log('>>>>>>>>>>>>>>>>>>>>onLocationReceived',userId)
+try{
+    db('users').update('current_lat_lon',location).where('id',userId);
+    var parts = await db('users').where('id',userId)
+    console.log('>>>>>>>>>>>>>>>>PARTS',parts)
+    socket.broadcast.emit('participants', parts)
+}catch(error){
+    throw error
 }
+}
+
+async function onJoinedMeetup(meetupId,socket){
+ 
+var participants=await db('users').innerJoin('participants','users.id','participants.user_id').where('meetup_id',meetupId)
+console.log(participants,'API>>>>>>>>>>>>>>>>')
+socket.emit('userJoined',participants)
+}
+
 app.use(bodyParser.json());
 
 app.use(

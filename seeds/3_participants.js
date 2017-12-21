@@ -28,9 +28,33 @@ exports.seed = function(knex, Promise) {
                 already_there: ''
             },
             {
+                user_id: 3,
+                meetup_id: 2,
+                status: 'ACCEPT',
+                time_remaining: '',
+                time_arrived: '',
+                already_there: ''
+            },
+            {
+                user_id: 2,
+                meetup_id: 2,
+                status: 'ACCEPT',
+                time_remaining: '',
+                time_arrived: '',
+                already_there: ''
+            },
+            {
+                user_id: 1,
+                meetup_id: 2,
+                status: '',
+                time_remaining: '',
+                time_arrived: '',
+                already_there: ''
+            },
+            {
                 user_id: 1,
                 meetup_id: 3,
-                status: '',
+                status: 'ACCEPT',
                 time_remaining: '',
                 time_arrived: '',
                 already_there: ''
@@ -38,7 +62,39 @@ exports.seed = function(knex, Promise) {
             {
                 user_id: 4,
                 meetup_id: 3,
-                status: '',
+                status: 'ACCEPT',
+                time_remaining: '',
+                time_arrived: '',
+                already_there: ''
+            },
+            {
+                user_id: 2,
+                meetup_id: 3,
+                status: 'ACCEPT',
+                time_remaining: '',
+                time_arrived: '',
+                already_there: ''
+            },
+                {
+                user_id: 2,
+                meetup_id: 4,
+                status: 'ACCEPT',
+                time_remaining: '',
+                time_arrived: '',
+                already_there: ''
+            },
+                {
+                user_id: 3,
+                meetup_id: 4,
+                status: 'ACCEPT',
+                time_remaining: '',
+                time_arrived: '',
+                already_there: ''
+            },
+                {
+                user_id: 1,
+                meetup_id: 4,
+                status: 'ACCEPT',
                 time_remaining: '',
                 time_arrived: '',
                 already_there: ''
