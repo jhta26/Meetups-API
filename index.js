@@ -21,26 +21,41 @@ websocket.on('connection', (socket) => {
     
 });
 
-async function onLocationReceived(location, socket,userId) {
-    var userId = users[socket.id];
-    if (!userId) return;
-    console.log('>>>>>>>>>>>>>>>>>>>>onLocationReceived',userId)
-try{
-    db('users').update('current_lat_lon',location).where('id',userId);
-    var parts = await db('users').where('id',userId)
-    console.log('>>>>>>>>>>>>>>>>PARTS',parts)
-    socket.broadcast.emit('participants', parts)
-}catch(error){
-    throw error
-}
+// async function onLocationReceived(location, socket,userId) {
+//     var userId = users[socket.id];
+//     if (!userId) return;
+// try{
+//     db('users').update('current_lat_lon',location).where('id',userId);
+//     var parts = await db('users').where('id',userId)
+//     socket.broadcast.emit('participants', parts)
+// }catch(error){
+//     throw error
+// }
+// }
+function onLocationReceived(location,socket,userId){
+    var userId=users[socket.id]
+    if(!userId) return
+        return db('users').update('current_lat_lon',location).where('id',userId)
+        .then(parts=>{
+            return db('users').where('id',userId)
+            
+        }).then(partss=>{
+            socket.broadcast.emit('participants',partss)
+        })
 }
 
-async function onJoinedMeetup(meetupId,socket){
- 
-var participants=await db('users').innerJoin('participants','users.id','participants.user_id').where('meetup_id',meetupId)
-console.log(participants,'API>>>>>>>>>>>>>>>>')
-socket.emit('userJoined',participants)
+function onJoinedMeetup(meetupId,socket){
+    return db('users').innJoin('participants','users.id','participants.user_id').where('meetup_id',meetupId)
+    .then(parts=>{
+        socket.emit('userJoined',parts)
+    })
+
 }
+// async function onJoinedMeetup(meetupId,socket){
+ 
+// var participants=await db('users').innerJoin('participants','users.id','participants.user_id').where('meetup_id',meetupId)
+// socket.emit('userJoined',participants)
+// }
 
 app.use(bodyParser.json());
 
