@@ -28,5 +28,3 @@ var users=[
         bar_info: 70
       }
     ]
-
-    console.log(users.map(a=>a.username))

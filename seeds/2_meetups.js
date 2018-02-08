@@ -7,7 +7,7 @@ exports.seed = function(knex, Promise) {
                 creator_name:"Jason Hsu",
                 name_of_meetup: 'Lunch',
                 destination_address: '472 3rd St, San Francisco, CA 94107, USA',
-                time_meetup: 'December 22nd 2017, 2:03 pm',
+                time_meetup: 'February 22nd 2018, 2:03 pm',
                 location_name: 'McDonalds',
                 location_lat_lon: '37.798713, -122.4317172',
                 active: 'YES',

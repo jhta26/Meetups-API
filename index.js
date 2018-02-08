@@ -8,11 +8,11 @@ var socketio = require('socket.io');
 const app = express();
 var http = require('http')
 var server = http.Server(app);
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 var websocket = socketio(server);
 const db = require('./knex');
-server.listen(3000, () => console.log('listening'))
+
 
 
 websocket.on('connection', (socket) => {
@@ -75,7 +75,7 @@ app.all('*', (req, res, next) => res.sendStatus(404));
 
 
 server.listen(port, () => {
-    console.log(`Listening on port ${port}`);
+    console.log(`Listening on port ${port} -----------`);
 });
 
 module.exports = app;
